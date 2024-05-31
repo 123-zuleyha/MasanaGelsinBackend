@@ -3,6 +3,8 @@ var router = express.Router();
 
 var homeController = require("../controllers/HomeController");
 var orderController = require("../controllers/OrderController");
+var paymentController = require("../controllers/PaymentController");
+var commentController = require("../controllers/CommentController");
 
 router.route("/").get((req, res) => {
   return res.status(200).json({
@@ -10,6 +12,11 @@ router.route("/").get((req, res) => {
     message: "Connected to MasanaGelsin API",
   });
 });
+
+router.post("/addPayment", paymentController.addPayment);
+
+router.get("/comments", commentController.getAllComments);
+router.post("/addComment", commentController.addComment);
 
 router
   .route("/home")
