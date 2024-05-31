@@ -7,7 +7,7 @@ passport.use(
   "local",
   new LocalStrategy(
     {
-      usernameField: "email",
+      usernameField: "name",
       passwordField: "password",
     },
     async (name, password, done) => {
