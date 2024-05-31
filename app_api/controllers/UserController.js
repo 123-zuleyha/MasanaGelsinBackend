@@ -67,7 +67,11 @@ const login = async (req, res) => {
       });
     } else {
       const token = user.generateToken();
-      createResponse(res, 200, { status: "success", user, token });
+      createResponse(res, 200, {
+        status: "success",
+        id: user._id,
+        token,
+      });
     }
   })(req, res);
 };
